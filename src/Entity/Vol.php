@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\VolRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,6 +30,20 @@ class Vol
 
     #[ORM\Column]
     private ?float $prixBilletInitiale = null;
+
+    #[ORM\ManyToOne(inversedBy: 'refVols')]
+    private ?Avion $refAvion = null;
+
+    /**
+     * @var Collection<int, Reservation>
+     */
+    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'refVol', orphanRemoval: true)]
+    private Collection $refReservations;
+
+    public function __construct()
+    {
+        $this->refReservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +106,48 @@ class Vol
     public function setPrixBilletInitiale(float $prixBilletInitiale): static
     {
         $this->prixBilletInitiale = $prixBilletInitiale;
+
+        return $this;
+    }
+
+    public function getRefAvion(): ?Avion
+    {
+        return $this->refAvion;
+    }
+
+    public function setRefAvion(?Avion $refAvion): static
+    {
+        $this->refAvion = $refAvion;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reservation>
+     */
+    public function getRefReservations(): Collection
+    {
+        return $this->refReservations;
+    }
+
+    public function addRefReservation(Reservation $refReservation): static
+    {
+        if (!$this->refReservations->contains($refReservation)) {
+            $this->refReservations->add($refReservation);
+            $refReservation->setRefVol($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRefReservation(Reservation $refReservation): static
+    {
+        if ($this->refReservations->removeElement($refReservation)) {
+            // set the owning side to null (unless already changed)
+            if ($refReservation->getRefVol() === $this) {
+                $refReservation->setRefVol(null);
+            }
+        }
 
         return $this;
     }
