@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire Congé{% endblock %}
+
+{% block body %}
+    <h1>Formulaire Congé</h1>
+    <p>Ajouter Congé</p>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Valider</button>
+    {{ form_end(form) }}
+{% endblock %}

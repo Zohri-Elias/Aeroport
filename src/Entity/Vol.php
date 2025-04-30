@@ -67,7 +67,7 @@ class Vol
         return $this->villeArrive;
     }
 
-    public function setVilleArrive(string $villeArrive): static
+    public function setVilleArrivee(string $villeArrive): static
     {
         $this->villeArrive = $villeArrive;
 

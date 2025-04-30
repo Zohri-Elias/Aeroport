@@ -5,17 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ebc0323-5a10-44d3-9c0f-2b716fc27859" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/CongesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ReservationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/UtilisateurController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/CongesType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ReservationType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/UtilisateurType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/VolType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20250430065005.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AcceuilController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Security/UtilisateurAuthentificatorAuthenticator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/conges/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/conges/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/conges/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/conges/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reservation/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reservation/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reservation/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reservation/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utilisateur/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utilisateur/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utilisateur/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utilisateur/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AvionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AvionType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ModeleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ModeleType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ModeleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModeleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UtilisateurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UtilisateurController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/VolController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VolController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/vol/ajout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vol/ajout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vol/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vol/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +38,13 @@
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -175,6 +195,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
@@ -188,6 +209,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Aeroport\templates\utilisateur" />
+      <recent name="C:\wamp64\www\Aeroport\templates\reservation" />
+      <recent name="C:\wamp64\www\Aeroport\templates\conges" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" scope="XML" use_alternative_configuration_file="true" />
@@ -217,5 +245,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Controller/AvionController.php</url>
+          <line>28</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

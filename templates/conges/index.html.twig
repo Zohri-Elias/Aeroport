@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des congés{% endblock %}
+
+{% block body %}
+    <h1>Liste des congés</h1>
+    <a href="{{ path('app_conges_new') }}">Ajouter un congé</a>
+    <ul>
+        {% for conge in conges %}
+            <li>
+                <a href="{{ path('app_conges_show', {id: conge.id}) }}">{{ conge.id }}</a>
+                <a href="{{ path('app_conges_edit', {id: conge.id}) }}">Modifier</a>
+                <form method="post" action="{{ path('app_conges_delete', {id: conge.id}) }}" style="display:inline;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ conge.id) }}">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
