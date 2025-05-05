@@ -23,7 +23,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var list<string> The user roles
      */
-    #[ORM\Column]
+    #[ORM\Column(type: 'json')]
     private array $roles = [];
 
     /**
@@ -165,5 +165,22 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
         $this->date_naissance = $date_naissance;
 
         return $this;
+    }
+    public function serialize(): string
+    {
+        return serialize([
+            $this->id,
+            $this->email,
+            $this->password
+        ]);
+    }
+
+    public function unserialize($serialized): void
+    {
+        list(
+            $this->id,
+            $this->email,
+            $this->password
+            ) = unserialize($serialized);
     }
 }

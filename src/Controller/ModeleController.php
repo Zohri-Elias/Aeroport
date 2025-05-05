@@ -32,7 +32,7 @@ final class ModeleController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('app_modele');
         }
-        return $this->render('modele/index.html.twig.twig', [
+        return $this->render('modele/inscription.html.twig.twig', [
             'controller_name' => 'ModeleController',
             'form' => $form->createView()
         ]);
@@ -48,7 +48,7 @@ final class ModeleController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('app_modele');
         }
-        return $this->render('modele/index.html.twig.twig', [
+        return $this->render('modele/inscription.html.twig.twig', [
             'controller_name' => 'ModeleController',
             'form' => $form->createView()
         ]);

@@ -17,7 +17,7 @@ class CongesController extends AbstractController
     #[Route('/', name: 'app_conges_index', methods: ['GET'])]
     public function index(CongesRepository $congesRepository): Response
     {
-        return $this->render('conges/index.html.twig', [
+        return $this->render('conges/inscription.html.twig', [
             'conges' => $congesRepository->findAll(),
         ]);
     }

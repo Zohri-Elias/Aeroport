@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h1 class="h3 mb-4 font-weight-normal text-center">Créer un compte</h1>
+
+                        {{ form_start(registrationForm) }}
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_row(registrationForm.prenom) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(registrationForm.nom) }}
+                            </div>
+                        </div>
+
+                        {{ form_row(registrationForm.email) }}
+
+                        {{ form_row(registrationForm.plainPassword.first, {
+                            'label': 'Mot de passe',
+                            'attr': {'autocomplete': 'new-password'}
+                        }) }}
+
+                        {{ form_row(registrationForm.plainPassword.second, {
+                            'label': 'Confirmer le mot de passe',
+                            'attr': {'autocomplete': 'new-password'}
+                        }) }}
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_row(registrationForm.dateNaissance) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(registrationForm.ville) }}
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            {{ form_row(registrationForm.agreeTerms) }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">S'inscrire</button>
+
+                        <div class="text-center mt-3">
+                            <a href="{{ path('app_login') }}">Déjà un compte ? Se connecter</a>
+                        </div>
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

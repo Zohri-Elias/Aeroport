@@ -15,7 +15,7 @@ final class VolController extends AbstractController
     #[Route('/vol', name: 'app_vol')]
     public function index(): Response
     {
-        return $this->render('vol/index.html.twig', [
+        return $this->render('vol/inscription.html.twig', [
             'controller_name' => 'VolController',
         ]);
     }

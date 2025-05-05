@@ -17,7 +17,7 @@ final class AvionController extends AbstractController
     #[Route(name: 'app_avion_index', methods: ['GET'])]
     public function index(AvionRepository $avionRepository): Response
     {
-        return $this->render('avion/index.html.twig', [
+        return $this->render('avion/inscription.html.twig', [
             'avions' => $avionRepository->findAll(),
         ]);
     }

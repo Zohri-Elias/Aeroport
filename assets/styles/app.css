@@ -1,3 +1,24 @@
 body {
     background-color: skyblue;
 }
+/* Style pour le formulaire d'inscription */
+.card {
+    border-radius: 10px;
+    border: none;
+}
+
+.form-control {
+    height: 45px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #3f51b5;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.form-check-label {
+    margin-left: 5px;
+}
