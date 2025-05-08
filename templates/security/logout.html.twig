@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Déconnexion{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h2 class="card-title mb-4">Déconnexion</h2>
+                        <p class="mb-4">Vous êtes sur le point de vous déconnecter.</p>
+
+                        <div class="d-flex justify-content-center gap-3">
+                            <form action="{{ path('app_logout') }}" method="post">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('logout') }}">
+                                <button type="submit" class="btn btn-danger btn-lg">
+                                    <i class="fas fa-sign-out-alt"></i> Confirmer
+                                </button>
+                            </form>
+
+                            <a href="{{ app.request.headers.get('referer')|default(path('app_utilisateur_index')) }}"
+                               class="btn btn-secondary btn-lg">
+                                <i class="fas fa-times"></i> Annuler
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

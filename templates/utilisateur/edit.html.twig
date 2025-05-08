@@ -1,14 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier Utilisateur{% endblock %}
+{% block title %}Modifier l'utilisateur #{{ utilisateur.id }}{% endblock %}
 
 {% block body %}
-    <h1>Modifier l'utilisateur</h1>
+    <div class="container mt-4">
+        <h1>Modifier l'utilisateur</h1>
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Mettre à jour</button>
-    {{ form_end(form) }}
+        {{ include('utilisateur/_form.html.twig.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('app_utilisateur_index') }}">Retour à la liste</a>
+        <div class="mt-3">
+            <a href="{{ path('app_utilisateur_show', {'id': utilisateur.id}) }}" class="btn btn-info">
+                <i class="fas fa-eye"></i> Voir les détails
+            </a>
+            <a href="{{ path('app_utilisateur_index') }}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Retour à la liste
+            </a>
+        </div>
+    </div>
 {% endblock %}

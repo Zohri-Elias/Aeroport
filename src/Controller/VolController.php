@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Repository\VolRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -10,13 +11,13 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Vol;
 
 
-final class VolController extends AbstractController
+class VolController extends AbstractController
 {
     #[Route('/vol', name: 'app_vol')]
-    public function index(): Response
+    public function index(VolRepository $volRepository): Response
     {
-        return $this->render('vol/inscription.html.twig', [
-            'controller_name' => 'VolController',
+        return $this->render('vol/index.html.twig', [
+            'vols' => $volRepository->findAll(),
         ]);
     }
     #[Route('/vol/ajout', name: 'ajouter_vol')]

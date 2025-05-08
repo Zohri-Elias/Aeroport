@@ -1,19 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Détails Utilisateur{% endblock %}
+{% block title %}Utilisateur #{{ utilisateur.id }}{% endblock %}
 
 {% block body %}
-    <h1>Détails de l'utilisateur</h1>
+    <div class="container mt-4">
+        <h1>Détails de l'utilisateur</h1>
 
-    <p>ID : {{ utilisateur.id }}</p>
-    <p>Nom : {{ utilisateur.nom }}</p>
-    <p>Email : {{ utilisateur.email }}</p>
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ utilisateur.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ utilisateur.nom }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ utilisateur.email }}</td>
+                    </tr>
+                    <!-- Ajoutez d'autres champs selon votre entité -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <a href="{{ path('app_utilisateur_index') }}">Retour à la liste</a>
-    <a href="{{ path('app_utilisateur_edit', {id: utilisateur.id}) }}">Modifier</a>
-
-    <form method="post" action="{{ path('app_utilisateur_delete', {id: utilisateur.id}) }}" style="display:inline;">
-        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ utilisateur.id) }}">
-        <button type="submit">Supprimer</button>
-    </form>
+        <div class="mt-3">
+            <a href="{{ path('app_utilisateur_edit', {'id': utilisateur.id}) }}" class="btn btn-warning">
+                <i class="fas fa-edit"></i> Modifier
+            </a>
+            <a href="{{ path('app_utilisateur_index') }}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Retour à la liste
+            </a>
+        </div>
+    </div>
 {% endblock %}

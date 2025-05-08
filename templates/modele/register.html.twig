@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if form.vars.value.id %}Modifier{% else %}Créer{% endif %} un modèle
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>{% if form.vars.value.id %}Modifier le modèle #{{ form.vars.value.id }}{% else %}Créer un nouveau modèle{% endif %}</h1>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-success">
+            {% if form.vars.value.id %}Mettre à jour{% else %}Créer{% endif %}
+        </button>
+        <a href="{{ path('app_modele') }}" class="btn btn-secondary">Retour à la liste</a>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

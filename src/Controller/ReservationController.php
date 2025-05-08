@@ -3,21 +3,24 @@
 namespace App\Controller;
 
 use App\Entity\Reservation;
+use App\Entity\Utilisateur;
+use App\Entity\Vol;
 use App\Form\ReservationType;
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
+
 
 #[Route('/reservation')]
-class ReservationController extends AbstractController
+final class ReservationController extends AbstractController
 {
-    #[Route('/', name: 'app_reservation_index', methods: ['GET'])]
+    #[Route(name: 'app_reservation_index', methods: ['GET'])]
     public function index(ReservationRepository $reservationRepository): Response
     {
-        return $this->render('reservation/inscription.html.twig', [
+        return $this->render('reservation/index.html.twig', [
             'reservations' => $reservationRepository->findAll(),
         ]);
     }
@@ -71,11 +74,45 @@ class ReservationController extends AbstractController
     #[Route('/{id}', name: 'app_reservation_delete', methods: ['POST'])]
     public function delete(Request $request, Reservation $reservation, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$reservation->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$reservation->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($reservation);
             $entityManager->flush();
         }
 
         return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
     }
+    #[Route('/reservation/vol/{volId}/{userId}', name: 'app_reservation_vol', methods: ['GET', 'POST'])]
+    public function reserverVol(Request $request, EntityManagerInterface $em, int $volId, int $userId): Response
+    {
+        $reservation = new Reservation();
+
+        $vol = $em->getRepository(Vol::class)->find($volId);
+        $user = $em->getRepository(Utilisateur::class)->find($userId);
+
+        if (!$vol || !$user) {
+            throw $this->createNotFoundException('Vol ou utilisateur introuvable');
+        }
+
+        $reservation->setRefVol($vol);
+        $reservation->setRefUtilisateur($user);
+        $reservation->setPrixBillet($vol->getPrixBillet());
+
+        $form = $this->createForm(ReservationType::class, $reservation);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($reservation);
+            $em->flush();
+
+            return $this->redirectToRoute('app_vol_index');
+        }
+
+        return $this->render('reservation/reserver.html.twig', [
+            'form' => $form->createView(),
+            'vol' => $vol
+        ]);
+    }
+
+
+
 }

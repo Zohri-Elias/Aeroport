@@ -14,6 +14,8 @@ class Modele
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+    #[ORM\Column(length: 255)]
+    private ?string $nom = null;
 
     #[ORM\Column(length: 50)]
     private ?string $modele = null;
@@ -35,6 +37,16 @@ class Modele
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): void
+    {
+        $this->nom = $nom;
     }
 
     public function getModele(): ?string

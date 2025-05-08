@@ -1,35 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Avion index{% endblock %}
+{% block title %}Gestion des Avions{% endblock %}
 
 {% block body %}
-    <h1>Avion index</h1>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-plane"></i> Gestion des Avions</h1>
+            <a href="{{ path('app_avion_new') }}" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Ajouter un avion
+            </a>
+        </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for avion in avions %}
-            <tr>
-                <td>{{ avion.id }}</td>
-                <td>{{ avion.nom }}</td>
-                <td>
-                    <a href="{{ path('app_avion_show', {'id': avion.id}) }}">show</a>
-                    <a href="{{ path('app_avion_edit', {'id': avion.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_avion_new') }}">Create new</a>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Immatriculation</th>
+                            <th>Modèle</th>
+                            <th>Nombre de places</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for avion in avions %}
+                            <tr>
+                                <td>{{ avion.id }}</td>
+                                <td>{{ avion.immatriculation }}</td>
+                                <td>{{ avion.modele }}</td>
+                                <td>{{ avion.nombreDePlace }}</td>
+                                <td class="text-nowrap">
+                                    <a href="{{ path('app_avion_show', {'id': avion.id}) }}" class="btn btn-sm btn-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="{{ path('app_avion_edit', {'id': avion.id}) }}" class="btn btn-sm btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    {{ include('avion/_delete_form.html.twig') }}
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center py-4">Aucun avion enregistré</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

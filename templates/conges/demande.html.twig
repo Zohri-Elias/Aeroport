@@ -1,43 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier l'avion {{ avion.immatriculation }}{% endblock %}
+{% block title %}Demande de Congé{% endblock %}
 
 {% block body %}
-    <div class="container my-5">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary text-white">
-                        <h2><i class="fas fa-edit"></i> Modifier l'avion {{ avion.immatriculation }}</h2>
+                        <h2><i class="fas fa-calendar-plus me-2"></i> Demande de congé</h2>
                     </div>
                     <div class="card-body">
                         {{ form_start(form) }}
                         <div class="row g-3">
                             <div class="col-md-6">
-                                {{ form_row(form.immatriculation, {
-                                    'label': 'Immatriculation',
+                                {{ form_row(form.dateDebut, {
+                                    'label': 'Date de début',
                                     'attr': {'class': 'form-control'}
                                 }) }}
                             </div>
                             <div class="col-md-6">
-                                {{ form_row(form.modele, {
-                                    'label': 'Modèle',
+                                {{ form_row(form.dateFin, {
+                                    'label': 'Date de fin',
                                     'attr': {'class': 'form-control'}
                                 }) }}
                             </div>
                             <div class="col-12">
-                                {{ form_row(form.nombreDePlace, {
-                                    'label': 'Nombre de places',
-                                    'attr': {'class': 'form-control'}
+                                {{ form_row(form.motif, {
+                                    'label': 'Motif du congé',
+                                    'attr': {'class': 'form-control', 'rows': 4,
+                                        'placeholder': 'Veuillez décrire la raison de votre demande de congé...'}
                                 }) }}
                             </div>
                         </div>
                         <div class="mt-4 d-flex justify-content-between">
-                            <a href="{{ path('app_avion_index') }}" class="btn btn-outline-secondary">
+                            <a href="{{ path('app_conges_VoirConges', {'id': app.user.id}) }}" class="btn btn-outline-secondary">
                                 <i class="fas fa-arrow-left me-2"></i> Annuler
                             </a>
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-2"></i> Enregistrer
+                                <i class="fas fa-paper-plane me-2"></i> Envoyer la demande
                             </button>
                         </div>
                         {{ form_end(form) }}

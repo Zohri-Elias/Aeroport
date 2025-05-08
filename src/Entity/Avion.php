@@ -2,99 +2,61 @@
 
 namespace App\Entity;
 
-use App\Repository\AvionRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AvionRepository::class)]
+#[ORM\Entity(repositoryClass: "App\Repository\AvionRepository")]
 class Avion
-{
+    {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(type: 'integer')]
+    private $id;
 
-    public function __toString(): string
-    {
-        // TODO: Implement __toString() method.
-    return (string) $this->id;
-    }
+    #[ORM\Column(type: 'string', length: 255)]
+    private $immatriculation;
 
-    #[ORM\Column(length: 50)]
-    private ?string $nom = null;
+    #[ORM\Column(type: 'string', length: 255)]
+    private $modele;
 
-    #[ORM\ManyToOne(inversedBy: 'refAvions')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Modele $refModele = null;
+    #[ORM\Column(type: 'integer')]
+    private $nombreDePlace;
 
-    /**
-     * @var Collection<int, Vol>
-     */
-    #[ORM\OneToMany(targetEntity: Vol::class, mappedBy: 'refAvion',orphanRemoval: true)]
-    private Collection $refVols;
-
-    public function __construct()
-    {
-        $this->refVols = new ArrayCollection();
-    }
-
+    // Ajoutez les getters et setters pour toutes les propriétés
     public function getId(): ?int
     {
-        return $this->id;
+    return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getImmatriculation(): ?string
     {
-        return $this->nom;
+    return $this->immatriculation;
     }
 
-    public function setNom(string $nom): static
+    public function setImmatriculation(string $immatriculation): self
     {
-        $this->nom = $nom;
-
-        return $this;
+    $this->immatriculation = $immatriculation;
+    return $this;
     }
 
-    public function getRefModele(): ?Modele
+    public function getModele(): ?string
     {
-        return $this->refModele;
+    return $this->modele;
     }
 
-    public function setRefModele(?Modele $refModele): static
+    public function setModele(string $modele): self
     {
-        $this->refModele = $refModele;
-
-        return $this;
+    $this->modele = $modele;
+    return $this;
     }
 
-    /**
-     * @return Collection<int, Vol>
-     */
-    public function getRefVols(): Collection
+    public function getNombreDePlace(): ?int
     {
-        return $this->refVols;
+    return $this->nombreDePlace;
     }
 
-    public function addRefVol(Vol $refVol): static
+    public function setNombreDePlace(int $nombreDePlace): self
     {
-        if (!$this->refVols->contains($refVol)) {
-            $this->refVols->add($refVol);
-            $refVol->setRefAvion($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRefVol(Vol $refVol): static
-    {
-        if ($this->refVols->removeElement($refVol)) {
-            // set the owning side to null (unless already changed)
-            if ($refVol->getRefAvion() === $this) {
-                $refVol->setRefAvion(null);
-            }
-        }
-
-        return $this;
+    $this->nombreDePlace = $nombreDePlace;
+    return $this;
     }
 }

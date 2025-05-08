@@ -7,6 +7,8 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
@@ -43,6 +45,13 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $date_naissance = null;
+    #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Conges::class)]
+    private Collection $conges;
+
+    public function __construct()
+    {
+        $this->conges = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -183,4 +192,5 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
             $this->password
             ) = unserialize($serialized);
     }
+
 }

@@ -1,6 +1,81 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acceuil{% endblock %}
+{% block title %}SkyLink - Accueil{% endblock %}
+
 {% block body %}
-<h1>Bienvenue sur la page d'accueil</h1><a href="/avion">Avions</a> | <a href="/conges">Congés</a> | <a href="/modele">Modèles</a> | <a href="/reservation">Réservations</a> | <a href="/utilisateur">Utilisateurs</a> | <a href="/vol">Vols</a>
+    <section class="hero-section">
+        <div class="container hero-content text-center">
+            <h1 class="display-3 fw-bold mb-4">Voyagez avec SkyLink</h1>
+            <p class="lead mb-5">Découvrez des destinations incroyables aux meilleurs prix</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{{ path('app_vol') }}" class="btn btn-primary btn-lg px-4 py-3">
+                    <i class="fas fa-search me-2"></i> Rechercher un vol
+                </a>
+                <a href="#" class="btn btn-outline-light btn-lg px-4 py-3">
+                    <i class="fas fa-percent me-2"></i> Nos promotions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Pourquoi choisir SkyLink ?</h2>
+                <p class="text-muted">Découvrez ce qui fait de nous la meilleure compagnie aérienne</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mx-auto mb-4">
+                            <i class="fas fa-shield-alt fa-2x"></i>
+                        </div>
+                        <h4>Sécurité</h4>
+                        <p class="text-muted">Notre priorité absolue avec des normes de sécurité les plus strictes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mx-auto mb-4">
+                            <i class="fas fa-smile fa-2x"></i>
+                        </div>
+                        <h4>Confort</h4>
+                        <p class="text-muted">Sièges spacieux et service à bord exceptionnel pour votre confort.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mx-auto mb-4">
+                            <i class="fas fa-tag fa-2x"></i>
+                        </div>
+                        <h4>Meilleur prix</h4>
+                        <p class="text-muted">Garantie du meilleur prix ou nous remboursons la différence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Voyage en avion" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Découvrez le monde avec nous</h2>
+                    <p class="lead mb-4">SkyLink vous emmène dans plus de 120 destinations à travers le monde avec un service exceptionnel.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <a href="{{ path('app_register') }}" class="btn btn-primary px-4 py-3">
+                            <i class="fas fa-user-plus me-2"></i> Créer un compte
+                        </a>
+                        <a href="#" class="btn btn-outline-primary px-4 py-3">
+                            <i class="fas fa-question-circle me-2"></i> En savoir plus
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

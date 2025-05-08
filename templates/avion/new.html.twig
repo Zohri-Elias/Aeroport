@@ -1,11 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Avion{% endblock %}
+{% block title %}Nouvel Avion{% endblock %}
 
 {% block body %}
-    <h1>Create new Avion</h1>
-
-    {{ include('avion/_form.html.twig') }}
-
-    <a href="{{ path('app_avion_index') }}">back to list</a>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h2><i class="fas fa-plane"></i> Ajouter un nouvel avion</h2>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                {{ form_row(form.immatriculation, {
+                                    'label': 'Immatriculation',
+                                    'attr': {'class': 'form-control'}
+                                }) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(form.modele, {
+                                    'label': 'Modèle',
+                                    'attr': {'class': 'form-control'}
+                                }) }}
+                            </div>
+                            <div class="col-12">
+                                {{ form_row(form.nombreDePlace, {
+                                    'label': 'Nombre de places',
+                                    'attr': {'class': 'form-control'}
+                                }) }}
+                            </div>
+                        </div>
+                        <div class="mt-4 d-flex justify-content-between">
+                            <a href="{{ path('app_avion_index') }}" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i> Retour à la liste
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i> Enregistrer
+                            </button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

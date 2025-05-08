@@ -14,11 +14,16 @@ class Reservation
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?float $prixBillet = null;
+    private ?float $prix_billet = null;
 
-    #[ORM\ManyToOne(inversedBy: 'refReservations')]
+    #[ORM\ManyToOne(inversedBy: 'refVols')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Vol $refVol = null;
+    private ?vol $refVol = null;
+
+
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Utilisateur $refUtilisateur = null;
 
     public function getId(): ?int
     {
@@ -27,24 +32,36 @@ class Reservation
 
     public function getPrixBillet(): ?float
     {
-        return $this->prixBillet;
+        return $this->prix_billet;
     }
 
-    public function setPrixBillet(float $prixBillet): static
+    public function setPrixBillet(float $prix_billet): static
     {
-        $this->prixBillet = $prixBillet;
+        $this->prix_billet = $prix_billet;
 
         return $this;
     }
 
-    public function getRefVol(): ?Vol
+    public function getRefVol(): ?vol
     {
         return $this->refVol;
     }
 
-    public function setRefVol(?Vol $refVol): static
+    public function setRefVol(?vol $refVol): static
     {
         $this->refVol = $refVol;
+
+        return $this;
+    }
+
+    public function getRefUtilisateur(): ?Utilisateur
+    {
+        return $this->refUtilisateur;
+    }
+
+    public function setRefUtilisateur(?Utilisateur $refUtilisateur): static
+    {
+        $this->refUtilisateur = $refUtilisateur;
 
         return $this;
     }

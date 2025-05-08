@@ -2,12 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Modele;
 use App\Entity\Utilisateur;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,16 +15,29 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class)
-            ->add('password', PasswordType::class)
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('ville', TextType::class, [
-                'required' => false,
-            ])
-            ->add('date_naissance', DateType::class, [
+            ->add('email')
+            ->add('password')
+            ->add('nom')
+            ->add('prenom')
+            ->add('date_Naissance', null, [
                 'widget' => 'single_text',
-                'required' => false,
+            ])
+            ->add('ville')
+            ->add('ref_modele', EntityType::class, [
+                'class' => modele::class,
+                'choice_label' => 'id',
+            ])
+            ->add('metier', ChoiceType::class, [
+                'choices'  => [
+                    'Client' => 'Client',
+                    'Pilote' => 'Pilote',
+                    'Hôtesse' => 'Hôtesse',
+                    'Mécanicien' => 'Mécanicien',
+                    'Contrôleur aérien' => 'Contrôleur aérien',
+                ],
+                'required' => true,
+                'label' => 'Métier',
+                'placeholder' => 'Choisissez un métier',
             ])
         ;
     }

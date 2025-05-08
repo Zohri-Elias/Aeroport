@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Congés{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-calendar-check me-2"></i> Mes Demandes de Congé</h1>
+            <a href="{{ path('app_conges_demande', {'id': app.user.id}) }}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i> Nouvelle demande
+            </a>
+        </div>
+
+        <div class="row g-4">
+            {% for conge in conges %}
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header d-flex justify-content-between align-items-center
+                    {% if conge.estValide is null %}bg-warning text-dark
+                    {% elseif conge.estValide %}bg-success text-white
+                    {% else %}bg-danger text-white{% endif %}">
+                    <span>
+                        Du {{ conge.dateDebut|date('d/m/Y') }} au {{ conge.dateFin|date('d/m/Y') }}
+                    </span>
+                            <span class="badge bg-light text-dark">
+                        {% if conge.estValide is null %}En attente
+                        {% elseif conge.estValide %}Approuvé
+                        {% else %}Refusé{% endif %}
+                    </span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ conge.motif }}</h5>
+                            {% if conge.validateur %}
+                                <p class="card-text">
+                                    <small>Validé par: {{ conge.validateur.prenom }} {{ conge.validateur.nom }}</small>
+                                </p>
+                            {% endif %}
+                        </div>
+                        <div class="card-footer bg-transparent d-flex justify-content-end gap-2">
+                            <a href="{{ path('app_conges_show', {'id': conge.id}) }}" class="btn btn-sm btn-info">
+                                <i class="fas fa-eye"></i> Détails
+                            </a>
+                            {% if conge.estValide is null %}
+                                <a href="{{ path('app_conges_edit', {'id': conge.id}) }}" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i> Modifier
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> Vous n'avez aucune demande de congé enregistrée.
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

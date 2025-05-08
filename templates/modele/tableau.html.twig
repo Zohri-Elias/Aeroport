@@ -1,28 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-ensemble des modeles
-{% endblock %}
+{% block title %}Liste des modèles{% endblock %}
 
 {% block body %}
-    <table>
-        <tr>
-            <td>id</td>
-            <td>marque</td>
-            <td>modele</td>
-            <td>action</td>
-        </tr>
-        {% for modele in modeles %}
-        <tr>
-            <td>{{ modele.id }}</td>
-            <td>{{ modele.marque }}</td>
-            <td>{{ modele.modele }}</td>
-            <td>
-                <a href="{{ path('app_modele_edit',{'id':modele.id}) }}">modifier</a>
-                <a href="{{ path('app_modele_supprimer',{'id':modele.id}) }}">supprimer</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="{{ path('app_modele_new') }}">Ajouter un modele</a>
+    <div class="container mt-4">
+        <h1>Liste des modèles</h1>
+
+        <a href="{{ path('app_modele_new') }}" class="btn btn-primary mb-3">Ajouter un modèle</a>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for modele in modeles %}
+                <tr>
+                    <td>{{ modele.id }}</td>
+                    <td>{{ modele.nom }}</td>
+                    <td>
+                        <a href="{{ path('app_modele_edit', {'id': modele.id}) }}" class="btn btn-sm btn-warning">Modifier</a>
+                        <a href="{{ path('app_modele_supprimer', {'id': modele.id}) }}" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce modèle ?')">Supprimer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucun modèle trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
