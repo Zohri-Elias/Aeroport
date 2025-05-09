@@ -15,10 +15,9 @@ class UtilisateurController extends AbstractController
 {
     public function __construct(
         private EntityManagerInterface $entityManager
-    ) {
-    }
+    ) {}
 
-    #[Route('/', name: 'app_utilisateur_index', methods: ['GET'])]
+    #[Route('/', name: 'app_utilisateur_index', methods: ['GET', 'POST'])]
     public function index(UtilisateurRepository $utilisateurRepository): Response
     {
         return $this->render('security/register.html.twig', [
@@ -68,7 +67,7 @@ class UtilisateurController extends AbstractController
             return $this->redirectToRoute('app_utilisateur_index');
         }
 
-        return $this->render('utilisateur/index.html.twig.twig', [
+        return $this->render('utilisateur/edit.html.twig', [
             'utilisateur' => $utilisateur,
             'form' => $form->createView(),
         ]);

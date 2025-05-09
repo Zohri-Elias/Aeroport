@@ -24,6 +24,20 @@ class Reservation
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Utilisateur $refUtilisateur = null;
+    #[ORM\Column(length: 255)]
+    private ?string $nom = null;
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
+        return $this;
+    }
+
 
     public function getId(): ?int
     {

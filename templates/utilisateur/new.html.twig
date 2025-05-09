@@ -1,15 +1,73 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Créer un nouvel utilisateur{% endblock %}
+{% block title %}Créer un utilisateur{% endblock %}
 
 {% block body %}
-    <div class="container mt-4">
-        <h1>Créer un nouvel utilisateur</h1>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h3 class="mb-0"><i class="fas fa-user-plus me-2"></i> Nouvel utilisateur</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        {{ form_start(form, {
+                            'action': path('app_utilisateur_new'),
+                            'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}
+                        }) }}
 
-        {{ include('utilisateur/_form.html.twig.twig') }}
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                {{ form_label(form.nom) }}
+                                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.nom) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_label(form.prenom) }}
+                                {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.prenom) }}
+                            </div>
+                        </div>
 
-        <a href="{{ path('app_utilisateur_index') }}" class="btn btn-secondary mt-3">
-            <i class="fas fa-arrow-left"></i> Retour à la liste
-        </a>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                {{ form_label(form.email) }}
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.email) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_label(form.password) }}
+                                {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.password) }}
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                {{ form_label(form.date_Naissance) }}
+                                {{ form_widget(form.date_Naissance, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.date_Naissance) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_label(form.ville) }}
+                                {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.ville) }}
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <a href="{{ path('app_utilisateur_index') }}" class="btn btn-secondary me-2">
+                                <i class="fas fa-arrow-left me-1"></i> Annuler
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i> Enregistrer
+                            </button>
+                        </div>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

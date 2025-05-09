@@ -44,10 +44,11 @@
                             {% endif %}
                         </td>
                         <td>
-                            {% if conge.validateur %}
+                            {# Si vous n'avez pas de validateur, affichez un message alternatif #}
+                            {% if conge.validateur is defined %}
                                 {{ conge.validateur.prenom }} {{ conge.validateur.nom }}
                             {% else %}
-                                -
+                                <span class="badge status-pending">Non défini</span>
                             {% endif %}
                         </td>
                         <td>
@@ -58,7 +59,7 @@
                                 <a href="{{ path('app_conges_edit', {'id': conge.id}) }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                {{ include('conges/_delete_form.html.twig.twig') }}
+                                {{ include('conges/_delete_form.html.twig') }}
                             {% endif %}
                         </td>
                     </tr>

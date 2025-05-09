@@ -5,52 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ebc0323-5a10-44d3-9c0f-2b716fc27859" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/CongesDemandeType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/RegisterType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/conges/VoirConges.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/conges/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/conges/demande.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/reservation/reserver.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20250509082036.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20250509092938.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AcceuilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AcceuilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AvionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AvionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CongesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CongesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ModeleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModeleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReservationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UtilisateurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UtilisateurController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VolController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VolController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Avion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Avion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Conges.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Conges.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AvionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AvionType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CongesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CongesType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Utilisateur.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ReservationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReservationType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/UtilisateurType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UtilisateurType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UtilisateurRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UtilisateurRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UtilisateurAuthentificatorAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/UtilisateurAuthentificatorAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/avion/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/avion/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/avion/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/avion/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/avion/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/avion/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/avion/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/avion/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/avion/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/avion/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conges/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conges/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/conges/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conges/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conges/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conges/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conges/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conges/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modele/tableau.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modele/tableau.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reservation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reservation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reservation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/inscription.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/utilisateur/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utilisateur/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/vol/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vol/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/utilisateur/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utilisateur/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\wamp64\bin\php\php8.2.26\php.exe">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\wamp64\bin\php\php8.1.0\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
@@ -206,6 +172,9 @@
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -215,22 +184,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/test_symfony",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/test_symfony&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Aeroport\templates\reservation" />
